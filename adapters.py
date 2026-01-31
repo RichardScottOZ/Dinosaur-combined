@@ -82,10 +82,12 @@ class PBDBAdapter(BaseAdapter):
             'Cretaceous': GeologicalPeriod.CRETACEOUS
         }
         
+        # Note: PBDB uses 'max_ma' for older age and 'min_ma' for younger age
+        # We reverse this to match our schema where min_ma is minimum (older) age
         stratigraphy = StratigraphicInfo(
             geological_period=period_map.get(record.get('interval'), GeologicalPeriod.UNKNOWN),
-            age_min_ma=record.get('max_ma'),  # PBDB uses max_ma for older age
-            age_max_ma=record.get('min_ma'),  # PBDB uses min_ma for younger age
+            age_min_ma=record.get('max_ma'),  # PBDB's max_ma is the older/minimum age
+            age_max_ma=record.get('min_ma'),  # PBDB's min_ma is the younger/maximum age
             formation_name=record.get('formation')
         )
         
