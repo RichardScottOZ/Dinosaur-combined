@@ -1,0 +1,47 @@
+[
+  {
+    "specimen_id": "3001",
+    "catalog_number": "AMNH-5027",
+    "genus": "Tyrannosaurus",
+    "species": "rex",
+    "order": "Theropoda",
+    "family": "Tyrannosauridae",
+    "collection": "Vertebrate Paleontology",
+    "type_status": "holotype",
+    "country": "United States",
+    "state_province": "Montana",
+    "locality": "Hell Creek",
+    "images": [
+      "https://example.com/amnh5027_1.jpg",
+      "https://example.com/amnh5027_2.jpg"
+    ]
+  },
+  {
+    "specimen_id": "3002",
+    "catalog_number": "AMNH-6341",
+    "genus": "Apatosaurus",
+    "species": "ajax",
+    "order": "Sauropodomorpha",
+    "family": "Diplodocidae",
+    "collection": "Vertebrate Paleontology",
+    "type_status": "paratype",
+    "country": "United States",
+    "state_province": "Colorado",
+    "locality": "Morrison Formation",
+    "images": [
+      "https://example.com/amnh6341.jpg"
+    ]
+  },
+  {
+    "specimen_id": "3003",
+    "catalog_number": "AMNH-5866",
+    "genus": "Protoceratops",
+    "species": "andrewsi",
+    "order": "Ornithischia",
+    "family": "Protoceratopsidae",
+    "collection": "Vertebrate Paleontology",
+    "type_status": "referred",
+    "country": "Mongolia",
+    "locality": "Djadochta Formation"
+  }
+]
