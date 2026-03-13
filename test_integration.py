@@ -4,6 +4,10 @@ Unit tests for the Dinosaur Database Integration System
 
 import unittest
 import json
+import os
+import subprocess
+import sys
+import tempfile
 from schema import (
     Dinosaur, TaxonomicClassification, GeographicLocation,
     StratigraphicInfo, PhysicalCharacteristics, DataSource,
@@ -296,6 +300,24 @@ class TestIntegration(unittest.TestCase):
         self.assertEqual(len(data['dinosaurs']), 1)
 
 
+class TestCLI(unittest.TestCase):
+    """Test the command-line interface"""
+
+    def test_module_entry_point_generates_sample_database(self):
+        """Test running the CLI module entry point"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            output_path = os.path.join(temp_dir, 'sample_database.json')
+            result = subprocess.run(
+                [sys.executable, '-m', 'dinosaur_cli', 'sample', '--output', output_path],
+                capture_output=True,
+                text=True,
+                check=False
+            )
+
+            self.assertEqual(result.returncode, 0, msg=result.stderr or result.stdout)
+            self.assertTrue(os.path.exists(output_path))
+
+
 def run_tests():
     """Run all tests"""
     loader = unittest.TestLoader()
@@ -305,6 +327,7 @@ def run_tests():
     suite.addTests(loader.loadTestsFromTestCase(TestSchema))
     suite.addTests(loader.loadTestsFromTestCase(TestAdapters))
     suite.addTests(loader.loadTestsFromTestCase(TestIntegration))
+    suite.addTests(loader.loadTestsFromTestCase(TestCLI))
     
     runner = unittest.TextTestRunner(verbosity=2)
     result = runner.run(suite)

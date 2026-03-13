@@ -226,7 +226,7 @@ def handle_sources(args):
         print(f"  Code: {code}")
         print(f"  Description: {description}")
     
-    print("\nUsage: dinosaur_cli.py import <source_code> <input_file>")
+    print("\nUsage: dinosaur-cli import <source_code> <input_file>")
 
 
 def handle_sample(args):
