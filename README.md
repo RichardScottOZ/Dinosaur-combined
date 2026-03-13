@@ -24,18 +24,36 @@ This project provides a complete solution for combining data from multiple dinos
 ## Quick Start
 
 ```bash
+# Install the package
+pip install .
+
 # Generate sample database
-python dinosaur_cli.py sample --output sample_database.json
+dinosaur-cli sample --output sample_database.json
 
 # Run demonstration
-python demo.py
+python -m demo
 
 # View statistics
-python dinosaur_cli.py stats --database sample_database.json
+dinosaur-cli stats --database sample_database.json
 
 # Query the database
-python dinosaur_cli.py query --name "Tyrannosaurus"
+dinosaur-cli query --name "Tyrannosaurus"
 ```
+
+## Installation
+
+```bash
+pip install .
+```
+
+For development, install in editable mode:
+
+```bash
+pip install -e .
+```
+
+This installs the `dinosaur-cli` command while keeping the existing top-level modules
+available for Python imports such as `from integrator import DataIntegrator`.
 
 ## Features
 
@@ -102,19 +120,19 @@ integrator.export_to_json('combined_database.json')
 
 ```bash
 # Import data
-python dinosaur_cli.py import pbdb examples/pbdb_sample.json
+dinosaur-cli import pbdb examples/pbdb_sample.json
 
 # Query by period
-python dinosaur_cli.py query --period cretaceous
+dinosaur-cli query --period cretaceous
 
 # Query by clade
-python dinosaur_cli.py query --clade theropoda
+dinosaur-cli query --clade theropoda
 
 # Show statistics
-python dinosaur_cli.py stats
+dinosaur-cli stats
 
 # Validate database
-python dinosaur_cli.py validate
+dinosaur-cli validate
 ```
 
 ## Contributing

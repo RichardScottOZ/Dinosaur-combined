@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dinosaur-combined"
+version = "0.1.0"
+description = "A comprehensive system for integrating dinosaur archive data into one unified database"
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "Educational and research use" }
+authors = [
+    { name = "Richard Scott OZ" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+]
+
+[project.scripts]
+dinosaur-cli = "dinosaur_cli:main"
+
+[tool.setuptools]
+py-modules = ["adapters", "demo", "dinosaur_cli", "integrator", "schema"]
