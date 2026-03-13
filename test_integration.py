@@ -316,6 +316,13 @@ class TestCLI(unittest.TestCase):
 
             self.assertEqual(result.returncode, 0, msg=result.stderr or result.stdout)
             self.assertTrue(os.path.exists(output_path))
+            with open(output_path, 'r') as output_file:
+                data = json.load(output_file)
+
+            self.assertIn('dinosaurs', data)
+            self.assertIn('metadata', data)
+            self.assertIsInstance(data['dinosaurs'], list)
+            self.assertGreater(len(data['dinosaurs']), 0)
 
 
 def run_tests():
